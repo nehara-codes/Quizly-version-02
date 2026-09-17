@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Quizly - Learn. Challenge. Improve.</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <main class="app">
+
+
+        <!-- =========================
+             WELCOME SCREEN
+        ========================== -->
+
+        <section
+            class="screen welcome-screen active"
+            id="welcome-screen"
+        >
+
+            <div class="brand">
+                QUIZLY
+            </div>
+
+            <h1>
+                Learn. Challenge. Improve.
+            </h1>
+
+            <p>
+                Test your knowledge and learn something new
+                with every question.
+            </p >
+
+            <button id="start-btn">
+                Start Learning →
+            </button>
+
+        </section>
+
+
+
+        <!-- =========================
+             SETUP SCREEN
+        ========================== -->
+
+        <section
+            class="screen setup-screen"
+            id="setup-screen"
+        >
+
+            <div class="brand">
+                QUIZLY
+            </div>
+
+            <h2>
+                Set Up Your Quiz
+            </h2>
+
+            <p class="setup-description">
+                Choose how you want to challenge yourself.
+            </p >
+
+
+            <!-- CATEGORY -->
+
+            <div class="setup-section">
+
+                <h3>
+                    Choose a category
+                </h3>
+
+                <div class="option-grid">
+
+                    <button
+                        type="button"
+                        class="option-btn category-btn"
+                        data-category="General Knowledge"
+                    >
+                        🧠
+                        <span>
+                            General Knowledge
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="option-btn category-btn"
+                        data-category="Science"
+                    >
+                        🔬
+                        <span>
+                            Science
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="option-btn category-btn"
+                        data-category="Programming"
+                    >
+                        💻
+                        <span>
+                            Programming
+                        </span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="option-btn category-btn"
+                        data-category="Geography"
+                    >
+                        🌎
+                        <span>
+                            Geography
+                        </span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DIFFICULTY -->
+
+            <div class="setup-section">
+
+                <h3>
+                    Choose difficulty
+                </h3>
+
+                <div class="difficulty-options">
+
+                    <button
+                        type="button"
+                        class="option-btn difficulty-btn"
+                        data-difficulty="Easy"
+                    >
+                        Easy
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="option-btn difficulty-btn"
+                        data-difficulty="Medium"
+                    >
+                        Medium
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="option-btn difficulty-btn"
+                        data-difficulty="Hard"
+                    >
+                        Hard
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- QUESTION COUNT -->
+
+            <div class="setup-section">
+
+                <h3>
+                    Number of questions
+                </h3>
+
+                <div class="count-options">
+
+                    <button
+                        type="button"
+                        class="option-btn count-btn"
+                        data-count="5"
+                    >
+                        5
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="option-btn count-btn"
+                        data-count="10"
+                    >
+                        10
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="option-btn count-btn"
+                        data-count="20"
+                    >
+                        20
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="begin-quiz-btn"
+            >
+                Start Quiz →
+            </button>
+
+        </section>
+
+
+
+        <!-- =========================
+             QUIZ SCREEN
+        ========================== -->
+
+        <section
+            class="screen quiz-screen"
+            id="quiz-screen"
+        >
+
+            <div class="quiz-top">
+
+                <div>
+
+                    <span class="quiz-label">
+                        QUESTION
+                    </span>
+
+                    <span id="current-question">
+                        1
+                    </span>
+
+                    <span>
+                        /
+                    </span>
+
+                    <span id="total-questions">
+                        0
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    Score:
+
+                    <span id="score">
+                        0
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROGRESS -->
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress"
+                    id="progress"
+                >
+                </div>
+
+            </div>
+
+
+
+            <!-- QUESTION -->
+
+            <div class="question-card">
+
+                <p
+                    class="question-category"
+                    id="question-category"
+                >
+                </p >
+
+                <h2 id="question-text">
+                    Question goes here
+                </h2>
+                <div id="timer">15</div>
+
+            </div>
+
+
+
+            <!-- ANSWERS -->
+
+            <div
+                class="answers-container"
+                id="answers-container"
+            >
+            </div>
+            <div id="explanation"></div>
+            <div id="answer-feedback"></div>
+            
+        </section>
+
+
+
+        <!-- =========================
+             RESULT SCREEN
+        ========================== -->
+
+        <section
+            class="screen result-screen"
+            id="result-screen"
+        >
+
+            <div class="brand">
+                QUIZLY
+            </div>
+
+            <h2>
+                Quiz Complete
+            </h2>
+
+
+            <p>
+                You scored
+
+                <span id="final-score">
+                    0
+                </span>
+
+                out of
+
+                <span id="max-score">
+                    0
+                </span>
+            </p >
+
+
+            <p>
+                Percentage:
+
+                <span id="percentage">
+                    0%
+                </span>
+            </p >
+
+<p>Best Score: <span id="best-score">0</span></p>
+            <p id="result-message">
+                Great job!!!
+            </p >
+
+
+            <!-- ANSWER REVIEW -->
+
+            <div id="review-container">
+            </div>
+
+
+            <button
+                type="button"
+                id="play-again-btn"
+            >
+                Play Again
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
